@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const NewUsers = () => {
@@ -8,12 +9,12 @@ const NewUsers = () => {
         <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white">
           Latest Patients
         </h5>
-        <a
-          href="#"
+        <Link
+          href="/staff/users"
           class="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500"
         >
           View all
-        </a>
+        </Link>
       </div>
       <div class="flow-root">
         <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">

@@ -4,6 +4,7 @@ import Input from "@/components/common/inputText/inputText";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Navbar from "@/components/common/navbar/navbar";
+import Link from "next/link";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home({ showNav}) {
@@ -122,7 +123,9 @@ export default function Home({ showNav}) {
                     type="submit"
                     className="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                   >
+                    <Link href="staff/dashboard">
                     Sign in
+                    </Link>
                   </button>
                 </form>
               </div>

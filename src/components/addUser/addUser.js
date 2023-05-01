@@ -638,21 +638,21 @@ const AddUser = () => {
             {/* for signature   */}
             {signature && (
               <>
-                <h1 className="text-lg font-bold  text-gray-900 md:text-2xl dark:text-white mb-4">
+                <h1 className="text-lg font-bold text-center text-gray-900 md:text-2xl dark:text-white mb-4">
                   This Consumer Contract including the Rights and
                   Responsibilities from has been reviewed with, and a copy given
                   to, the named Consumer/Consumer's representative.
                 </h1>
-                <h1 className="text-sm font-normal  text-gray-900 md:text-normal dark:text-white mb-4">
+                <h1 className="text-sm font-normal text-center text-gray-900 md:text-normal dark:text-white mb-4">
                   IN WITNESS WHEREOF, the undersigned with the intent and
                   authority to legally bind the respective Party, have caused
                   this Agreement to be duly executed and effective as of the
                   Effective Date.
                 </h1>
-                <div class=" grid gap-4 sm:grid-cols-2 sm:gap-6">
+                <div class=" grid gap-4 sm:grid-cols-3 sm:gap-6">
                   <div class="w-full">
                     <Input
-                      label="Consumer/Consumer's Representative Signature"
+                      label="Consumer Representative Signature"
                       type="text"
                       id="c_signature"
                       name="c_signature"
@@ -671,7 +671,7 @@ const AddUser = () => {
 
                   <div class="w-full">
                     <Input
-                      label="Agency Authorized Signature & Position"
+                      label="Agency Authorized Signature"
                       type="text"
                       id="agency_signature"
                       name="agency_signature"
@@ -709,74 +709,172 @@ const AddUser = () => {
             {/* for auth */}
             {auth && (
               <>
-                <div class=" grid gap-4 sm:grid-cols-2 sm:gap-6">
+                <h1 className="text-lg text-center font-bold  text-gray-900 md:text-2xl dark:text-white mb-4">
+                  AUTHORIZATION FOR RELEASE OF HEALTH INFORMATION PURSUANT TO
+                  HIPAA
+                </h1>
+                <div class=" grid gap-4 sm:grid-cols-3 sm:gap-6">
+                  <div class="w-full">
+                    <Input
+                      label="Patient Name"
+                      type="text"
+                      id="patient_name"
+                      name="patient_name"
+                      placeholder="John Doe"
+                    />
+                  </div>
                   <div class="sm:col-span-2">
                     <Input
-                      label="Email"
-                      type="email"
-                      id="email"
-                      name="email"
-                      placeholder="aliijohn@deo.com"
+                      label="Date of Birth"
+                      type="date"
+                      id="patient_Dob"
+                      name="patient_Dob"
                     />
                   </div>
                   <div class="w-full">
                     <Input
-                      label="Email"
-                      type="email"
-                      id="email"
-                      name="email"
-                      placeholder="john@deo.com"
-                    />
+                      label="Social Security Number"
+                      type="text"
+                      id="sec_number"
+                      name="sec_number"
+                      placeholder=""
+                    />{" "}
                   </div>
                   <div class="w-full">
                     <Input
-                      label="Email"
-                      type="email"
-                      id="email"
-                      name="email"
-                      placeholder="john@deo.com"
+                      label="Patient Address"
+                      type="text"
+                      id="patient address"
+                      name="patient address"
+                      placeholder="Address here"
                     />{" "}
                   </div>
-                  <div>
-                    <label
-                      for="category"
-                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                    >
-                      Category
-                    </label>
-                    <select
-                      id="category"
-                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg  block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:outline-none"
-                    >
-                      <option selected="">Select category</option>
-                      <option value="TV">TV/Monitors</option>
-                      <option value="PC">PC</option>
-                      <option value="GA">Gaming/Console</option>
-                      <option value="PH">Phones</option>
-                    </select>
-                  </div>
-                  <div>
+                  <div class="w-full">
                     <Input
-                      label="Email"
-                      type="email"
-                      id="email"
-                      name="email"
-                      placeholder="john@deo.com"
+                      label="State"
+                      type="text"
+                      id="patient_state"
+                      name="patient_state"
+                      placeholder="State here"
                     />{" "}
                   </div>
-                  <div class="sm:col-span-2">
+                  <div class="sm:col-span-3">
+                    <Input
+                      label="Name and address of health provider or entity to release this information"
+                      type="text"
+                      id="health_provider_name"
+                      name="health_provider_name"
+                      placeholder=""
+                      value="Axzons Health System Crop 70 E Sunrise Hwy, Stc 500,
+                      Valley Stream , NY 1158!"
+                    />{" "}
+                  </div>
+                  <div class="sm:col-span-3">
                     <label
-                      for="description"
+                      for="person_name"
                       class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                     >
-                      Description
+                      Name and address of person(s) or category of person to
+                      whom this information will be sent:
                     </label>
                     <textarea
-                      id="description"
-                      rows="8"
+                      id="person_name"
+                      name="person_name"
+                      rows="5"
                       class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:outline-none "
-                      placeholder="Your description here"
+                      placeholder="john , doe "
                     ></textarea>
+                  </div>
+                  <div class="sm:col-span-3">
+                    <h1 className="text-lg font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white mb-4">
+                      Medical Record
+                    </h1>
+                  </div>
+                  <div class="w-full">
+                    <Input
+                      label="From Date"
+                      type="date"
+                      id="medical_record_from_date"
+                      name="medical_record_from_date"
+                      placeholder=""
+                    />{" "}
+                  </div>
+                  <div class="w-full">
+                    <Input
+                      label="To Date"
+                      type="date"
+                      id="medical_record_to_date"
+                      name="medical_record_from_date"
+                      placeholder=""
+                    />{" "}
+                  </div>
+                  <div class="sm:col-span-3">
+                    <h1 className="text-lg font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white mb-4">
+                      Authorization to Discuss Health Information
+                    </h1>
+                  </div>
+                  <div class="w-full">
+                    <Input
+                      label="Initials"
+                      type="text"
+                      id="initials"
+                      name="initials"
+                      placeholder="initials"
+                    />{" "}
+                  </div>
+                  <div class="w-full">
+                    <Input
+                      label="Name of individual health care"
+                      type="date"
+                      id="ind_health_care_provider"
+                      name="ind_health_care_provider"
+                      placeholder="Abc"
+                    />{" "}
+                  </div>
+                  <div class="w-full">
+                    <Input
+                      label="Firm Name or Agency Name"
+                      type="text"
+                      id="firm_name"
+                      name="firm_name"
+                      placeholder="Abc"
+                    />{" "}
+                  </div>
+                  <div class="w-full">
+                    <Input
+                      label="Reason for release of information"
+                      type="text"
+                      id="reason"
+                      name="reason"
+                      placeholder="Reason here"
+                    />{" "}
+                  </div>
+                  <div class="w-full">
+                    <Input
+                      label="Expiry Date"
+                      type="date"
+                      id="auth_expiray_date"
+                      name="auth_expiray_date"
+                      placeholder=""
+                    />{" "}
+                  </div>
+                  <div class="w-full">
+                    <Input
+                      label="If not patient, enter name of signer."
+                      type="text"
+                      id="not_patient"
+                      name="not_patient"
+                      placeholder="Abc"
+                    />{" "}
+                  </div>
+                  <div class="w-full">
+                    <Input
+                      label="Authority to sign on behalf of patient"
+                      type="text"
+                      id="patient_behalf_authority"
+                      name="patient_behalf_authority"
+                      placeholder="Abc"
+                    />{" "}
                   </div>
                 </div>
                 <div className="flex justify-between mb-2">
@@ -803,71 +901,98 @@ const AddUser = () => {
                 <div class=" grid gap-4 sm:grid-cols-2 sm:gap-6">
                   <div class="sm:col-span-2">
                     <Input
-                      label="Email"
-                      type="email"
-                      id="email"
-                      name="email"
-                      placeholder="john@deo.com"
+                      label="Carrier"
+                      type="text"
+                      id="carrier"
+                      name="carrier"
+                      placeholder=""
                     />
                   </div>
                   <div class="w-full">
                     <Input
-                      label="Email"
-                      type="email"
-                      id="email"
-                      name="email"
-                      placeholder="john@deo.com"
+                      label="Patient Name"
+                      type="text"
+                      id="p_name"
+                      name="p_name"
+                      placeholder="john"
                     />
                   </div>
                   <div class="w-full">
                     <Input
-                      label="Email"
-                      type="email"
-                      id="email"
-                      name="email"
-                      placeholder="john@deo.com"
+                      label="Medicated Number"
+                      type="text"
+                      id="m_number"
+                      name="m_number"
+                      placeholder=""
                     />{" "}
                   </div>
-                  <div>
-                    <label
-                      for="category"
-                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                    >
-                      Category
-                    </label>
-                    <select
-                      id="category"
-                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg  block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:outline-none"
-                    >
-                      <option selected="">Select category</option>
-                      <option value="TV">TV/Monitors</option>
-                      <option value="PC">PC</option>
-                      <option value="GA">Gaming/Console</option>
-                      <option value="PH">Phones</option>
-                    </select>
-                  </div>
-                  <div>
+                  <div class="w-full">
                     <Input
-                      label="Email"
-                      type="email"
-                      id="email"
-                      name="email"
-                      placeholder="john@deo.com"
+                      label="Patient DOB"
+                      type="date"
+                      id="p_dob"
+                      name="p_dob"
+                      placeholder=""
                     />{" "}
                   </div>
                   <div class="sm:col-span-2">
-                    <label
-                      for="description"
-                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                    >
-                      Description
-                    </label>
-                    <textarea
-                      id="description"
-                      rows="8"
-                      class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:outline-none "
-                      placeholder="Your description here"
-                    ></textarea>
+                    <h1 className="text-lg font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white mb-4">
+                      By
+                    </h1>
+                  </div>
+                  <div class="w-full">
+                    <Input
+                      label="Legal Representative"
+                      type="text"
+                      id="legal_representative"
+                      name="legal_representative"
+                      placeholder="John"
+                    />{" "}
+                  </div>
+                  <div class="w-full">
+                    <Input
+                      label="Date"
+                      type="date"
+                      id="legal_date"
+                      name="legal_date"
+                      placeholder=""
+                    />{" "}
+                  </div>
+                  <div class="sm:col-span-2">
+                    <h1 className="text-lg font-bold text-center leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white mb-4">
+                      That my signature below indicated my agreement to comply
+                      with these terms.
+                    </h1>
+                  </div>
+                  <div class="w-full">
+                    <Input
+                      label="First and Last Name"
+                      type="text"
+                      id="f_l_name"
+                      name="f_l_name"
+                      placeholder="John Doe"
+                    />{" "}
+                  </div>
+                  <div class="w-full">
+                    <Input
+                      label="Desigination"
+                      type="text"
+                      id="desigination"
+                      name="desigination"
+                      placeholder="Manager"
+                    />{" "}
+                  </div>
+                  <div class="w-full">
+                    <Input
+                      label="Signature"
+                      type="text"
+                      id="m_signature"
+                      name="m_signature"
+                      placeholder="abc"
+                    />{" "}
+                  </div>
+                  <div class="w-full">
+                    <Input label="Date" type="date" id="m_date" name="m_date" />
                   </div>
                 </div>
                 <div className="flex justify-between mb-2">
@@ -893,72 +1018,14 @@ const AddUser = () => {
               <>
                 <div class=" grid gap-4 sm:grid-cols-2 sm:gap-6">
                   <div class="sm:col-span-2">
-                    <Input
-                      label="Email"
-                      type="email"
-                      id="email"
-                      name="email"
-                      placeholder="john@deo.com"
-                    />
-                  </div>
-                  <div class="w-full">
-                    <Input
-                      label="Email"
-                      type="email"
-                      id="email"
-                      name="email"
-                      placeholder="john@deo.com"
-                    />
-                  </div>
-                  <div class="w-full">
-                    <Input
-                      label="Email"
-                      type="email"
-                      id="email"
-                      name="email"
-                      placeholder="john@deo.com"
-                    />{" "}
-                  </div>
-                  <div>
-                    <label
-                      for="category"
-                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                    >
-                      Category
-                    </label>
-                    <select
-                      id="category"
-                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg  block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:outline-none"
-                    >
-                      <option selected="">Select category</option>
-                      <option value="TV">TV/Monitors</option>
-                      <option value="PC">PC</option>
-                      <option value="GA">Gaming/Console</option>
-                      <option value="PH">Phones</option>
-                    </select>
-                  </div>
-                  <div>
-                    <Input
-                      label="Email"
-                      type="email"
-                      id="email"
-                      name="email"
-                      placeholder="john@deo.com"
-                    />{" "}
-                  </div>
-                  <div class="sm:col-span-2">
-                    <label
-                      for="description"
-                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                    >
-                      Description
-                    </label>
-                    <textarea
-                      id="description"
-                      rows="8"
-                      class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:outline-none "
-                      placeholder="Your description here"
-                    ></textarea>
+                    <h1 className="text-lg font-medium text-center leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white mb-4">
+                      By signing this agreement, I acknowledge and agree to the
+                      terms and conditions outlined herein. These terms and
+                      conditions include but are not limited to the
+                      responsibilities of all parties involved, the scope of
+                      work to be performed, and any applicable legal
+                      requirements.
+                    </h1>
                   </div>
                 </div>
                 <div className="flex justify-between mb-2">
@@ -974,7 +1041,7 @@ const AddUser = () => {
                     class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
                     onClick={showConfirm}
                   >
-                    Confirm
+                    Submit
                   </button>
                 </div>
               </>
