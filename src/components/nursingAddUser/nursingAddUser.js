@@ -3,16 +3,25 @@ import Input from "../common/inputText/inputText";
 
 const NursingAddUser = () => {
   const [consumer, setConsumer] = useState(true);
+  const [additionalInfo, setAdditionalInfo] = useState(false);
   const [confirm, setConfirm] = useState(false);
 
   const showConsumer = () => {
     setConsumer(true);
+    setConfirm(false);
+    setAdditionalInfo(false);
+  };
+
+  const showAdditionalInfo = () => {
+    setConsumer(false);
+    setAdditionalInfo(true);
     setConfirm(false);
   };
 
   const showConfirm = () => {
     setConsumer(false);
     setConfirm(true);
+    setAdditionalInfo(false);
   };
 
   return (
@@ -137,6 +146,35 @@ const NursingAddUser = () => {
               </span>
               <h3 class="font-medium leading-tight">Insurance Benefits</h3>
             </li> */}
+            <li class="mb-10 ml-6">
+              <span
+                class={`absolute flex items-center justify-center w-8 h-8 ${
+                  additionalInfo
+                    ? "bg-green-200 dark:bg-green-900"
+                    : "bg-gray-100 dark:bg-gray-700"
+                }  rounded-full -left-4 ring-4 ring-white dark:ring-gray-900 `}
+              >
+                <svg
+                  aria-hidden="true"
+                  class={`w-5 h-5  ${
+                    additionalInfo
+                      ? "text-green-500 dark:text-green-400"
+                      : "text-gray-500 dark:text-gray-400"
+                  } `}
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path>
+                  <path
+                    fill-rule="evenodd"
+                    d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm9.707 5.707a1 1 0 00-1.414-1.414L9 12.586l-1.293-1.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </span>
+              <h3 class="font-medium leading-tight">Additional Info</h3>
+            </li>
             <li class="mb-10 ml-6">
               <span
                 class={`absolute flex items-center justify-center w-8 h-8 ${
@@ -598,6 +636,392 @@ const NursingAddUser = () => {
                   <button
                     type="button"
                     class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
+                    onClick={showAdditionalInfo}
+                  >
+                    Next
+                  </button>
+                </div>
+              </>
+            )}
+
+            {/* for Additional Info */}
+            {additionalInfo && (
+              <>
+                <div class=" grid gap-4 sm:grid-cols-2 sm:gap-6">
+                  <Input
+                    label="Height"
+                    type="text"
+                    id="height"
+                    name="height"
+                    placeholder="5'9"
+                  />
+                  <Input
+                    label="Weight"
+                    type="text"
+                    id="weight"
+                    name="weight"
+                    placeholder="182 LBs"
+                  />
+                  <div class="sm:col-span-2">
+                    <h3 class="mb-4 font-semibold text-gray-900 dark:text-white">
+                      Weight Status
+                    </h3>
+                    <ul class="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                      <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                        <div class="flex items-center pl-3">
+                          <input
+                            id="horizontal-weight_status-increase"
+                            type="radio"
+                            value=""
+                            name="weight_status"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          />
+                          <label
+                            for="horizontal-weight_status-increase"
+                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                          >
+                            Increase{" "}
+                          </label>
+                        </div>
+                      </li>
+                      <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                        <div class="flex items-center pl-3">
+                          <input
+                            id="horizontal-weight_status-static"
+                            type="radio"
+                            value=""
+                            name="weight_status"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          />
+                          <label
+                            for="horizontal-weight_status-static"
+                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                          >
+                            Static
+                          </label>
+                        </div>
+                      </li>
+                      <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                        <div class="flex items-center pl-3">
+                          <input
+                            id="horizontal-weight_status-decrease"
+                            type="radio"
+                            value=""
+                            name="weight_status"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          />
+                          <label
+                            for="horizontal-weight_status-decrease"
+                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                          >
+                            Decrease
+                          </label>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="sm:col-span-2">
+                    <label
+                      for="weight_change_reason"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >
+                      Reason for any weight change
+                    </label>
+                    <textarea
+                      id="weight_change_reason"
+                      name="weight_change_reason"
+                      rows="5"
+                      class="block p-2.5 w-full text-sm text-gray-900 bg-transparent rounded-lg border border-gray-300  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:outline-none "
+                      placeholder="Reason here "
+                    ></textarea>
+                  </div>
+                  <div class="sm:col-span-2">
+                    <h3 class="mb-4 font-semibold text-gray-900 dark:text-white">
+                      Vital Signs
+                    </h3>
+                    <ul class="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                      <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                        <div class="flex items-center pl-3">
+                          <input
+                            id="bloodpressure_checkbox"
+                            type="checkbox"
+                            value="blood_pressure"
+                            name="blood_pressure"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          />
+                          <label
+                            for="bloodpressure_checkbox"
+                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                          >
+                            Blood Pressure
+                          </label>
+                        </div>
+                      </li>
+                      <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                        <div class="flex items-center pl-3">
+                          <input
+                            id="pulse_checkbox"
+                            type="checkbox"
+                            value="pulse"
+                            name="pulse"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          />
+                          <label
+                            for="pulse_checkbox"
+                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                          >
+                            Pulse
+                          </label>
+                        </div>
+                      </li>
+                      <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                        <div class="flex items-center pl-3">
+                          <input
+                            id="respirations_checkbox"
+                            type="checkbox"
+                            value="respirations"
+                            name="respirations"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          />
+                          <label
+                            for="respirations_checkbox"
+                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                          >
+                            Respirations
+                          </label>
+                        </div>
+                      </li>
+                      <li class="w-full dark:border-gray-600">
+                        <div class="flex items-center pl-3">
+                          <input
+                            id="temprature_checkbox"
+                            type="checkbox"
+                            value="temprature"
+                            name="temprature"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          />
+                          <label
+                            for="temprature_checkbox"
+                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                          >
+                            Temprature
+                          </label>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="sm:col-span-2">
+                    <h3 class="mb-4 font-semibold text-gray-900 dark:text-white">
+                      Pain
+                    </h3>
+                    <ul class="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                      <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                        <div class="flex items-center pl-3">
+                          <input
+                            id="horizontal-yes_pain"
+                            type="radio"
+                            value="Yes Pain"
+                            name="pain"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          />
+                          <label
+                            for="horizontal-yes_pain"
+                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                          >
+                            Yes
+                          </label>
+                        </div>
+                      </li>
+                      <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                        <div class="flex items-center pl-3">
+                          <input
+                            id="horizontal-no-pain"
+                            type="radio"
+                            value="No pain"
+                            name="pain"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          />
+                          <label
+                            for="horizontal-no-pain"
+                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                          >
+                            No
+                          </label>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="sm:col-span-2">
+                    <Input
+                      label="If yes level of Pain"
+                      type="number"
+                      id="pain_level"
+                      name="pain_level"
+                      placeholder="10"
+                    />
+                  </div>
+                  <div class="sm:col-span-2">
+                    <label
+                      for="location_description"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >
+                      Location & Description
+                    </label>
+                    <textarea
+                      id="location_description"
+                      name="location_description"
+                      rows="5"
+                      class="block p-2.5 w-full text-sm text-gray-900 bg-transparent rounded-lg border border-gray-300  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:outline-none "
+                      placeholder=""
+                    ></textarea>
+                  </div>
+                  <div class="sm:col-span-2">
+                    <label
+                      for="present_illness_history"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >
+                     History of present illness
+                    </label>
+                    <textarea
+                      id="present_illness_history"
+                      name="present_illness_history"
+                      rows="5"
+                      class="block p-2.5 w-full text-sm text-gray-900 bg-transparent rounded-lg border border-gray-300  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:outline-none "
+                      placeholder=""
+                    ></textarea>
+                  </div>
+                  <div class="sm:col-span-2">
+                    <label
+                      for="past_illness_history"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >
+                     Past History
+                    </label>
+                    <textarea
+                      id="past_illness_history"
+                      name="past_illness_history"
+                      rows="5"
+                      class="block p-2.5 w-full text-sm text-gray-900 bg-transparent rounded-lg border border-gray-300  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:outline-none "
+                      placeholder=""
+                    ></textarea>
+                  </div>
+                  <div class="sm:col-span-2">
+                    <label
+                      for="family_and_personal_history"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >
+                      Family & Personal History
+                    </label>
+                    <textarea
+                      id="family_and_personal_history"
+                      name="family_and_personal_history"
+                      rows="5"
+                      class="block p-2.5 w-full text-sm text-gray-900 bg-transparent rounded-lg border border-gray-300  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:outline-none "
+                      placeholder=""
+                    ></textarea>
+                  </div>
+                  <div class="sm:col-span-2">
+                    <Input
+                      label="General Appearence"
+                      type="text"
+                      id="general_appearence"
+                      name="general_appearence"
+                      placeholder=""
+                    />
+                  </div>
+                  <div class="sm:col-span-2">
+                    <Input
+                      label="Skin"
+                      type="text"
+                      id="skin"
+                      name="skin"
+                      placeholder=""
+                    />
+                  </div>
+                  <div class="sm:col-span-2">
+                    <Input
+                      label="HEENT ( Head , Eye , ENT )"
+                      type="text"
+                      id="heent"
+                      name="heent"
+                      placeholder=""
+                    />
+                  </div>
+                  <div class="sm:col-span-2">
+                    <Input
+                      label="Neck"
+                      type="text"
+                      id="neck"
+                      name="neck"
+                      placeholder=""
+                    />
+                  </div>
+                  <div class="sm:col-span-2">
+                    <Input
+                      label="Chest and Lungs"
+                      type="text"
+                      id="chest_lungs"
+                      name="chest_lungs"
+                      placeholder=""
+                    />
+                  </div>
+                  <div class="sm:col-span-2">
+                    <Input
+                      label="Cardiovascular"
+                      type="text"
+                      id="cardiovascular"
+                      name="cardiovascular"
+                      placeholder=""
+                    />
+                  </div>
+                  <div class="sm:col-span-2">
+                    <Input
+                      label="Abdomen"
+                      type="text"
+                      id="abdomen"
+                      name="abdomen"
+                      placeholder=""
+                    />
+                  </div>
+                  <div class="sm:col-span-2">
+                    <Input
+                      label="Genitourinary"
+                      type="text"
+                      id="genitourinary"
+                      name="genitourinary"
+                      placeholder=""
+                    />
+                  </div>
+                  <div class="sm:col-span-2">
+                    <Input
+                      label="Rectal"
+                      type="text"
+                      id="rectal"
+                      name="rectal"
+                      placeholder=""
+                    />
+                  </div>
+                  <div class="sm:col-span-2">
+                    <Input
+                      label="Neurological / psychiatry"
+                      type="text"
+                      id="neurological_psychiatry"
+                      name="neurological_psychiatry"
+                      placeholder=""
+                    />
+                  </div>
+                </div>
+                <div className="flex justify-between mb-2">
+                  <button
+                    type="button"
+                    class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
+                    onClick={showConsumer}
+                  >
+                    Back
+                  </button>
+                  <button
+                    type="button"
+                    class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
                     onClick={showConfirm}
                   >
                     Next
@@ -605,6 +1029,7 @@ const NursingAddUser = () => {
                 </div>
               </>
             )}
+
             {/* for Confirmation */}
             {confirm && (
               <>
@@ -624,7 +1049,7 @@ const NursingAddUser = () => {
                   <button
                     type="button"
                     class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
-                    onClick={showConsumer}
+                    onClick={showAdditionalInfo}
                   >
                     Back
                   </button>

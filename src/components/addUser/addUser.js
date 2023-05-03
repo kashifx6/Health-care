@@ -46,16 +46,16 @@ const AddUser = () => {
     setConfirm(true);
   };
   return (
-    <section class="bg-white dark:bg-gray-800">
-      <h2 class="text-center mb-4 mt-4 text-xl font-bold text-gray-900 dark:text-white">
+    <section className="bg-white dark:bg-gray-800">
+      <h2 className="text-center mb-4 mt-4 text-xl font-bold text-gray-900 dark:text-white">
         ADD A NEW PATIENT
       </h2>
-      <div class="md:flex md:justify-between md:items-center ">
+      <div className="md:flex md:justify-between md:items-center ">
         <div className="p-5">
-          <ol class="relative text-gray-500 border-l border-gray-200 dark:border-gray-700 dark:text-gray-400">
-            <li class="mb-10 ml-6">
+          <ol className="relative text-gray-500 border-l border-gray-200 dark:border-gray-700 dark:text-gray-400">
+            <li className="mb-10 ml-6">
               <span
-                class={`absolute flex items-center justify-center w-8 h-8 ${
+                className={`absolute flex items-center justify-center w-8 h-8 ${
                   consumer
                     ? "bg-green-200 dark:bg-green-900"
                     : "bg-gray-100 dark:bg-gray-700"
@@ -63,7 +63,7 @@ const AddUser = () => {
               >
                 <svg
                   aria-hidden="true"
-                  class={`w-5 h-5  ${
+                  className={`w-5 h-5  ${
                     consumer
                       ? "text-green-500 dark:text-green-400"
                       : "text-gray-500 dark:text-gray-400"
@@ -79,11 +79,11 @@ const AddUser = () => {
                   ></path>
                 </svg>
               </span>
-              <h3 class="font-medium leading-tight">Consumer Contract</h3>
+              <h3 className="font-medium leading-tight">Consumer Contract</h3>
             </li>
-            <li class="mb-10 ml-6">
+            <li className="mb-10 ml-6">
               <span
-                class={`absolute flex items-center justify-center w-8 h-8 ${
+                className={`absolute flex items-center justify-center w-8 h-8 ${
                   signature
                     ? "bg-green-200 dark:bg-green-900"
                     : "bg-gray-100 dark:bg-gray-700"
@@ -91,7 +91,7 @@ const AddUser = () => {
               >
                 <svg
                   aria-hidden="true"
-                  class={`w-5 h-5  ${
+                  className={`w-5 h-5  ${
                     signature
                       ? "text-green-500 dark:text-green-400"
                       : "text-gray-500 dark:text-gray-400"
@@ -107,11 +107,11 @@ const AddUser = () => {
                   ></path>
                 </svg>
               </span>
-              <h3 class="font-medium leading-tight">Signature And Date</h3>
+              <h3 className="font-medium leading-tight">Signature And Date</h3>
             </li>
-            <li class="mb-10 ml-6">
+            <li className="mb-10 ml-6">
               <span
-                class={`absolute flex items-center justify-center w-8 h-8 ${
+                className={`absolute flex items-center justify-center w-8 h-8 ${
                   auth
                     ? "bg-green-200 dark:bg-green-900"
                     : "bg-gray-100 dark:bg-gray-700"
@@ -119,7 +119,7 @@ const AddUser = () => {
               >
                 <svg
                   aria-hidden="true"
-                  class={`w-5 h-5  ${
+                  className={`w-5 h-5  ${
                     auth
                       ? "text-green-500 dark:text-green-400"
                       : "text-gray-500 dark:text-gray-400"
@@ -136,11 +136,11 @@ const AddUser = () => {
                   ></path>
                 </svg>
               </span>
-              <h3 class="font-medium leading-tight">Authorization To HIPPA</h3>
+              <h3 className="font-medium leading-tight">Authorization To HIPPA</h3>
             </li>
-            <li class="mb-10 ml-6">
+            <li className="mb-10 ml-6">
               <span
-                class={`absolute flex items-center justify-center w-8 h-8 ${
+                className={`absolute flex items-center justify-center w-8 h-8 ${
                   insurance
                     ? "bg-green-200 dark:bg-green-900"
                     : "bg-gray-100 dark:bg-gray-700"
@@ -148,7 +148,7 @@ const AddUser = () => {
               >
                 <svg
                   aria-hidden="true"
-                  class={`w-5 h-5  ${
+                  className={`w-5 h-5  ${
                     insurance
                       ? "text-green-500 dark:text-green-400"
                       : "text-gray-500 dark:text-gray-400"
@@ -165,11 +165,11 @@ const AddUser = () => {
                   ></path>
                 </svg>
               </span>
-              <h3 class="font-medium leading-tight">Insurance Benefits</h3>
+              <h3 className="font-medium leading-tight">Insurance Benefits</h3>
             </li>
-            <li class="mb-10 ml-6">
+            <li className="mb-10 ml-6">
               <span
-                class={`absolute flex items-center justify-center w-8 h-8 ${
+                className={`absolute flex items-center justify-center w-8 h-8 ${
                   confirm
                     ? "bg-green-200 dark:bg-green-900"
                     : "bg-gray-100 dark:bg-gray-700"
@@ -177,7 +177,7 @@ const AddUser = () => {
               >
                 <svg
                   aria-hidden="true"
-                  class={`w-5 h-5  ${
+                  className={`w-5 h-5  ${
                     confirm
                       ? "text-green-500 dark:text-green-400"
                       : "text-gray-500 dark:text-gray-400"
@@ -194,8 +194,8 @@ const AddUser = () => {
                   ></path>
                 </svg>
               </span>
-              <h3 class="font-medium leading-tight">Confirmation</h3>
-              <p class="text-sm">Click on the submit button to confirm</p>
+              <h3 className="font-medium leading-tight">Confirmation</h3>
+              <p className="text-sm">Click on the submit button to confirm</p>
             </li>
           </ol>
         </div>
@@ -205,8 +205,8 @@ const AddUser = () => {
 
             {consumer && (
               <>
-                <div class=" grid gap-4 sm:grid-cols-2 sm:gap-6">
-                  <div class="sm:col-span-2">
+                <div className=" grid gap-4 sm:grid-cols-2 sm:gap-6">
+                  <div className="sm:col-span-2">
                     <Input
                       label="Name"
                       type="text"
@@ -215,19 +215,19 @@ const AddUser = () => {
                       placeholder="John Deo"
                     />
                   </div>
-                  <div class="w-full">
+                  <div className="w-full">
                     <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                       Gender
                     </label>
                     <select
                       id="gender"
-                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg  block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:outline-none"
+                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg  block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:outline-none"
                     >
                       <option value="male">Male</option>
                       <option value="female">Female</option>
                     </select>
                   </div>
-                  <div class="w-full">
+                  <div className="w-full">
                     <Input label="DOB" type="date" id="dob" name="dob" />{" "}
                   </div>
                   <div className="w-full">
@@ -539,7 +539,7 @@ const AddUser = () => {
                       placeholder=""
                     />{" "}
                   </div>
-                  <div class="sm:col-span-2">
+                  <div className="sm:col-span-2">
                     <h1 className="text-lg font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white mb-4">
                       Primary Care Physician Information
                     </h1>
@@ -620,14 +620,14 @@ const AddUser = () => {
                 <div className="flex justify-between mb-2">
                   <button
                     type="button"
-                    class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
+                    className="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
                     onClick={showConsumer}
                   >
                     Back
                   </button>
                   <button
                     type="button"
-                    class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
+                    className="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
                     onClick={showSignature}
                   >
                     Next
@@ -649,8 +649,8 @@ const AddUser = () => {
                   this Agreement to be duly executed and effective as of the
                   Effective Date.
                 </h1>
-                <div class=" grid gap-4 sm:grid-cols-3 sm:gap-6">
-                  <div class="w-full">
+                <div className=" grid gap-4 sm:grid-cols-3 sm:gap-6">
+                  <div className="w-full">
                     <Input
                       label="Consumer Representative Signature"
                       type="text"
@@ -659,7 +659,7 @@ const AddUser = () => {
                       placeholder="Signature Here"
                     />
                   </div>
-                  <div class="w-full">
+                  <div className="w-full">
                     <Input
                       label="Date"
                       type="date"
@@ -669,7 +669,7 @@ const AddUser = () => {
                     />
                   </div>
 
-                  <div class="w-full">
+                  <div className="w-full">
                     <Input
                       label="Agency Authorized Signature"
                       type="text"
@@ -678,7 +678,7 @@ const AddUser = () => {
                       placeholder="Signature Here"
                     />
                   </div>
-                  <div class="w-full">
+                  <div className="w-full">
                     <Input
                       label="Date"
                       type="date"
@@ -691,14 +691,14 @@ const AddUser = () => {
                 <div className="flex justify-between mb-2">
                   <button
                     type="button"
-                    class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
+                    className="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
                     onClick={showConsumer}
                   >
                     Back
                   </button>
                   <button
                     type="button"
-                    class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
+                    className="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
                     onClick={showAuth}
                   >
                     Next
@@ -713,8 +713,8 @@ const AddUser = () => {
                   AUTHORIZATION FOR RELEASE OF HEALTH INFORMATION PURSUANT TO
                   HIPAA
                 </h1>
-                <div class=" grid gap-4 sm:grid-cols-3 sm:gap-6">
-                  <div class="w-full">
+                <div className=" grid gap-4 sm:grid-cols-3 sm:gap-6">
+                  <div className="w-full">
                     <Input
                       label="Patient Name"
                       type="text"
@@ -723,7 +723,7 @@ const AddUser = () => {
                       placeholder="John Doe"
                     />
                   </div>
-                  <div class="sm:col-span-2">
+                  <div className="sm:col-span-2">
                     <Input
                       label="Date of Birth"
                       type="date"
@@ -731,7 +731,7 @@ const AddUser = () => {
                       name="patient_Dob"
                     />
                   </div>
-                  <div class="w-full">
+                  <div className="w-full">
                     <Input
                       label="Social Security Number"
                       type="text"
@@ -740,7 +740,7 @@ const AddUser = () => {
                       placeholder=""
                     />{" "}
                   </div>
-                  <div class="w-full">
+                  <div className="w-full">
                     <Input
                       label="Patient Address"
                       type="text"
@@ -749,7 +749,7 @@ const AddUser = () => {
                       placeholder="Address here"
                     />{" "}
                   </div>
-                  <div class="w-full">
+                  <div className="w-full">
                     <Input
                       label="State"
                       type="text"
@@ -758,7 +758,7 @@ const AddUser = () => {
                       placeholder="State here"
                     />{" "}
                   </div>
-                  <div class="sm:col-span-3">
+                  <div className="sm:col-span-3">
                     <Input
                       label="Name and address of health provider or entity to release this information"
                       type="text"
@@ -769,10 +769,10 @@ const AddUser = () => {
                       Valley Stream , NY 1158!"
                     />{" "}
                   </div>
-                  <div class="sm:col-span-3">
+                  <div className="sm:col-span-3">
                     <label
                       for="person_name"
-                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                     >
                       Name and address of person(s) or category of person to
                       whom this information will be sent:
@@ -781,16 +781,16 @@ const AddUser = () => {
                       id="person_name"
                       name="person_name"
                       rows="5"
-                      class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:outline-none "
+                      className="block p-2.5 w-full text-sm text-gray-900 bg-transparent rounded-lg border border-gray-300  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:outline-none "
                       placeholder="john , doe "
                     ></textarea>
                   </div>
-                  <div class="sm:col-span-3">
+                  <div className="sm:col-span-3">
                     <h1 className="text-lg font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white mb-4">
                       Medical Record
                     </h1>
                   </div>
-                  <div class="w-full">
+                  <div className="w-full">
                     <Input
                       label="From Date"
                       type="date"
@@ -799,7 +799,7 @@ const AddUser = () => {
                       placeholder=""
                     />{" "}
                   </div>
-                  <div class="w-full">
+                  <div className="w-full">
                     <Input
                       label="To Date"
                       type="date"
@@ -808,12 +808,12 @@ const AddUser = () => {
                       placeholder=""
                     />{" "}
                   </div>
-                  <div class="sm:col-span-3">
+                  <div className="sm:col-span-3">
                     <h1 className="text-lg font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white mb-4">
                       Authorization to Discuss Health Information
                     </h1>
                   </div>
-                  <div class="w-full">
+                  <div className="w-full">
                     <Input
                       label="Initials"
                       type="text"
@@ -822,7 +822,7 @@ const AddUser = () => {
                       placeholder="initials"
                     />{" "}
                   </div>
-                  <div class="w-full">
+                  <div className="w-full">
                     <Input
                       label="Name of individual health care"
                       type="date"
@@ -831,7 +831,7 @@ const AddUser = () => {
                       placeholder="Abc"
                     />{" "}
                   </div>
-                  <div class="w-full">
+                  <div className="w-full">
                     <Input
                       label="Firm Name or Agency Name"
                       type="text"
@@ -840,7 +840,7 @@ const AddUser = () => {
                       placeholder="Abc"
                     />{" "}
                   </div>
-                  <div class="w-full">
+                  <div className="w-full">
                     <Input
                       label="Reason for release of information"
                       type="text"
@@ -849,7 +849,7 @@ const AddUser = () => {
                       placeholder="Reason here"
                     />{" "}
                   </div>
-                  <div class="w-full">
+                  <div className="w-full">
                     <Input
                       label="Expiry Date"
                       type="date"
@@ -858,7 +858,7 @@ const AddUser = () => {
                       placeholder=""
                     />{" "}
                   </div>
-                  <div class="w-full">
+                  <div className="w-full">
                     <Input
                       label="If not patient, enter name of signer."
                       type="text"
@@ -867,7 +867,7 @@ const AddUser = () => {
                       placeholder="Abc"
                     />{" "}
                   </div>
-                  <div class="w-full">
+                  <div className="w-full">
                     <Input
                       label="Authority to sign on behalf of patient"
                       type="text"
@@ -880,14 +880,14 @@ const AddUser = () => {
                 <div className="flex justify-between mb-2">
                   <button
                     type="button"
-                    class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
+                    className="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
                     onClick={showSignature}
                   >
                     Back
                   </button>
                   <button
                     type="button"
-                    class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
+                    className="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
                     onClick={showInsurance}
                   >
                     Next
@@ -898,8 +898,8 @@ const AddUser = () => {
             {/* for insurance */}
             {insurance && (
               <>
-                <div class=" grid gap-4 sm:grid-cols-2 sm:gap-6">
-                  <div class="sm:col-span-2">
+                <div className=" grid gap-4 sm:grid-cols-2 sm:gap-6">
+                  <div className="sm:col-span-2">
                     <Input
                       label="Carrier"
                       type="text"
@@ -908,7 +908,7 @@ const AddUser = () => {
                       placeholder=""
                     />
                   </div>
-                  <div class="w-full">
+                  <div className="w-full">
                     <Input
                       label="Patient Name"
                       type="text"
@@ -917,7 +917,7 @@ const AddUser = () => {
                       placeholder="john"
                     />
                   </div>
-                  <div class="w-full">
+                  <div className="w-full">
                     <Input
                       label="Medicated Number"
                       type="text"
@@ -926,7 +926,7 @@ const AddUser = () => {
                       placeholder=""
                     />{" "}
                   </div>
-                  <div class="w-full">
+                  <div className="w-full">
                     <Input
                       label="Patient DOB"
                       type="date"
@@ -935,12 +935,12 @@ const AddUser = () => {
                       placeholder=""
                     />{" "}
                   </div>
-                  <div class="sm:col-span-2">
+                  <div className="sm:col-span-2">
                     <h1 className="text-lg font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white mb-4">
                       By
                     </h1>
                   </div>
-                  <div class="w-full">
+                  <div className="w-full">
                     <Input
                       label="Legal Representative"
                       type="text"
@@ -949,7 +949,7 @@ const AddUser = () => {
                       placeholder="John"
                     />{" "}
                   </div>
-                  <div class="w-full">
+                  <div className="w-full">
                     <Input
                       label="Date"
                       type="date"
@@ -958,13 +958,13 @@ const AddUser = () => {
                       placeholder=""
                     />{" "}
                   </div>
-                  <div class="sm:col-span-2">
+                  <div className="sm:col-span-2">
                     <h1 className="text-lg font-bold text-center leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white mb-4">
                       That my signature below indicated my agreement to comply
                       with these terms.
                     </h1>
                   </div>
-                  <div class="w-full">
+                  <div className="w-full">
                     <Input
                       label="First and Last Name"
                       type="text"
@@ -973,7 +973,7 @@ const AddUser = () => {
                       placeholder="John Doe"
                     />{" "}
                   </div>
-                  <div class="w-full">
+                  <div className="w-full">
                     <Input
                       label="Desigination"
                       type="text"
@@ -982,7 +982,7 @@ const AddUser = () => {
                       placeholder="Manager"
                     />{" "}
                   </div>
-                  <div class="w-full">
+                  <div className="w-full">
                     <Input
                       label="Signature"
                       type="text"
@@ -991,21 +991,21 @@ const AddUser = () => {
                       placeholder="abc"
                     />{" "}
                   </div>
-                  <div class="w-full">
+                  <div className="w-full">
                     <Input label="Date" type="date" id="m_date" name="m_date" />
                   </div>
                 </div>
                 <div className="flex justify-between mb-2">
                   <button
                     type="button"
-                    class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
+                    className="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
                     onClick={showAuth}
                   >
                     Back
                   </button>
                   <button
                     type="button"
-                    class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
+                    className="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
                     onClick={showConfirm}
                   >
                     Next
@@ -1016,8 +1016,8 @@ const AddUser = () => {
             {/* for Confirmation */}
             {confirm && (
               <>
-                <div class=" grid gap-4 sm:grid-cols-2 sm:gap-6">
-                  <div class="sm:col-span-2">
+                <div className=" grid gap-4 sm:grid-cols-2 sm:gap-6">
+                  <div className="sm:col-span-2">
                     <h1 className="text-lg font-medium text-center leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white mb-4">
                       By signing this agreement, I acknowledge and agree to the
                       terms and conditions outlined herein. These terms and
@@ -1031,14 +1031,14 @@ const AddUser = () => {
                 <div className="flex justify-between mb-2">
                   <button
                     type="button"
-                    class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
+                    className="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
                     onClick={showInsurance}
                   >
                     Back
                   </button>
                   <button
                     type="button"
-                    class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
+                    className="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
                     onClick={showConfirm}
                   >
                     Submit
