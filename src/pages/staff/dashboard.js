@@ -10,7 +10,6 @@ const StaffDashboard = ({ showNav}) => {
 
   return (
     <>
-   
       <div className={`${showNav ? "ml-64" : "ml-0"} `}>
         <div className="content p-3 ">
           <Cards />
