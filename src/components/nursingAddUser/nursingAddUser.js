@@ -4,24 +4,33 @@ import Input from "../common/inputText/inputText";
 const NursingAddUser = () => {
   const [consumer, setConsumer] = useState(true);
   const [additionalInfo, setAdditionalInfo] = useState(false);
+  const [medication, setMedication] = useState(false);
   const [confirm, setConfirm] = useState(false);
 
   const showConsumer = () => {
     setConsumer(true);
-    setConfirm(false);
     setAdditionalInfo(false);
+    setConfirm(false);
+    setMedication(false);
   };
 
   const showAdditionalInfo = () => {
     setConsumer(false);
     setAdditionalInfo(true);
     setConfirm(false);
+    setMedication(false);
   };
-
+  const showMedication = () => {
+    setConsumer(false);
+    setConfirm(false);
+    setAdditionalInfo(false);
+    setMedication(true);
+  };
   const showConfirm = () => {
     setConsumer(false);
     setConfirm(true);
     setAdditionalInfo(false);
+    setMedication(false);
   };
 
   return (
@@ -174,6 +183,37 @@ const NursingAddUser = () => {
                 </svg>
               </span>
               <h3 class="font-medium leading-tight">Additional Info</h3>
+            </li>
+            <li class="mb-10 ml-6">
+              <span
+                class={`absolute flex items-center justify-center w-8 h-8 ${
+                  medication
+                    ? "bg-green-200 dark:bg-green-900"
+                    : "bg-gray-100 dark:bg-gray-700"
+                }  rounded-full -left-4 ring-4 ring-white dark:ring-gray-900 `}
+              >
+                <svg
+                  aria-hidden="true"
+                  class={`w-5 h-5  ${
+                    medication
+                      ? "text-green-500 dark:text-green-400"
+                      : "text-gray-500 dark:text-gray-400"
+                  } `}
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path>
+                  <path
+                    fill-rule="evenodd"
+                    d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm9.707 5.707a1 1 0 00-1.414-1.414L9 12.586l-1.293-1.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </span>
+              <h3 class="font-medium leading-tight">
+                Medication Allergies Food and Other
+              </h3>
             </li>
             <li class="mb-10 ml-6">
               <span
@@ -880,7 +920,7 @@ const NursingAddUser = () => {
                       for="present_illness_history"
                       class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                     >
-                     History of present illness
+                      History of present illness
                     </label>
                     <textarea
                       id="present_illness_history"
@@ -895,7 +935,7 @@ const NursingAddUser = () => {
                       for="past_illness_history"
                       class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                     >
-                     Past History
+                      Past History
                     </label>
                     <textarea
                       id="past_illness_history"
@@ -1022,6 +1062,816 @@ const NursingAddUser = () => {
                   <button
                     type="button"
                     class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
+                    onClick={showMedication}
+                  >
+                    Next
+                  </button>
+                </div>
+              </>
+            )}
+
+            {/* for Medication */}
+            {medication && (
+              <>
+                <div class=" grid gap-4 sm:grid-cols-2 sm:gap-6">
+                  <div class="sm:col-span-2">
+                    <h3 class="mb-4 font-semibold text-gray-900 dark:text-white">
+                      Prognosis
+                    </h3>
+                    <ul class="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                      <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                        <div class="flex items-center pl-3">
+                          <input
+                            id="horizontal-prognosis-poor"
+                            type="radio"
+                            value=""
+                            name="prognosis"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          />
+                          <label
+                            for="horizontal-prognosis-poor"
+                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                          >
+                            Poor{" "}
+                          </label>
+                        </div>
+                      </li>
+                      <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                        <div class="flex items-center pl-3">
+                          <input
+                            id="prognosis-static"
+                            type="radio"
+                            value=""
+                            name="prognosis"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          />
+                          <label
+                            for="prognosis-static"
+                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                          >
+                            Gaurded
+                          </label>
+                        </div>
+                      </li>
+                      <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                        <div class="flex items-center pl-3">
+                          <input
+                            id="prognosis-decrease"
+                            type="radio"
+                            value=""
+                            name="prognosis"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          />
+                          <label
+                            for="prognosis-decrease"
+                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                          >
+                            Fair
+                          </label>
+                        </div>
+                      </li>
+                      <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                        <div class="flex items-center pl-3">
+                          <input
+                            id="prognosis-decrease"
+                            type="radio"
+                            value=""
+                            name="prognosis"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          />
+                          <label
+                            for="prognosis-decrease"
+                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                          >
+                            Good
+                          </label>
+                        </div>
+                      </li>
+                      <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                        <div class="flex items-center pl-3">
+                          <input
+                            id="prognosis-decrease"
+                            type="radio"
+                            value=""
+                            name="prognosis"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          />
+                          <label
+                            for="prognosis-decrease"
+                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                          >
+                            Excellent
+                          </label>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="sm:col-span-2">
+                    <label
+                      for="Safety-Measures"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >
+                      Safety Measures
+                    </label>
+                    <textarea
+                      id="Safety-Measures"
+                      name="safety_measures"
+                      rows="5"
+                      class="block p-2.5 w-full text-sm text-gray-900 bg-transparent rounded-lg border border-gray-300  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:outline-none "
+                      placeholder=""
+                    ></textarea>
+                  </div>
+                  <div class="sm:col-span-2">
+                    <h2 class="mb-4 font-semibold text-gray-900 dark:text-white">
+                      Dental Care
+                    </h2>
+                    <h3 class="mb-4 font-semibold text-gray-900 dark:text-white">
+                      Does Client Have Dental Problems ?
+                    </h3>
+                    <ul class="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                      <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                        <div class="flex items-center pl-3">
+                          <input
+                            id="horizontal-prognosis-poor"
+                            type="radio"
+                            value=""
+                            name="dental_problem"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          />
+                          <label
+                            for="horizontal-prognosis-poor"
+                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                          >
+                            Yes{" "}
+                          </label>
+                        </div>
+                      </li>
+                      <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                        <div class="flex items-center pl-3">
+                          <input
+                            id="prognosis-static"
+                            type="radio"
+                            value=""
+                            name="dental_problem"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          />
+                          <label
+                            for="prognosis-static"
+                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                          >
+                            No
+                          </label>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="sm:col-span-2">
+                    <h3 class="mb-4 font-semibold text-gray-900 dark:text-white">
+                      Is client under care of Dentist ?
+                    </h3>
+                    <ul class="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                      <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                        <div class="flex items-center pl-3">
+                          <input
+                            id="horizontal-prognosis-poor"
+                            type="radio"
+                            value=""
+                            name="dentist_care"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          />
+                          <label
+                            for="horizontal-prognosis-poor"
+                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                          >
+                            Yes{" "}
+                          </label>
+                        </div>
+                      </li>
+                      <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                        <div class="flex items-center pl-3">
+                          <input
+                            id="prognosis-static"
+                            type="radio"
+                            value=""
+                            name="dentist_care"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          />
+                          <label
+                            for="prognosis-static"
+                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                          >
+                            No
+                          </label>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="sm:col-span-2">
+                    <h3 class="mb-4 font-semibold text-gray-900 dark:text-white">
+                      Dental Status
+                    </h3>
+                    <ul class="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                      <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                        <div class="flex items-center pl-3">
+                          <input
+                            id="horizontal-prognosis-poor"
+                            type="radio"
+                            value=""
+                            name="dental_status"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          />
+                          <label
+                            for="horizontal-prognosis-poor"
+                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                          >
+                            No Dentures{" "}
+                          </label>
+                        </div>
+                      </li>
+                      <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                        <div class="flex items-center pl-3">
+                          <input
+                            id="prognosis-static"
+                            type="radio"
+                            value=""
+                            name="dental_status"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          />
+                          <label
+                            for="prognosis-static"
+                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                          >
+                            Full Upper
+                          </label>
+                        </div>
+                      </li>
+                      <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                        <div class="flex items-center pl-3">
+                          <input
+                            id="prognosis-decrease"
+                            type="radio"
+                            value=""
+                            name="dental_status"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          />
+                          <label
+                            for="prognosis-decrease"
+                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                          >
+                            Full Lower
+                          </label>
+                        </div>
+                      </li>
+                      <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                        <div class="flex items-center pl-3">
+                          <input
+                            id="prognosis-decrease"
+                            type="radio"
+                            value=""
+                            name="dental_status"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          />
+                          <label
+                            for="prognosis-decrease"
+                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                          >
+                            Partial Denture
+                          </label>
+                        </div>
+                      </li>
+                      <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                        <div class="flex items-center pl-3">
+                          <input
+                            id="prognosis-decrease"
+                            type="radio"
+                            value=""
+                            name="dental_status"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          />
+                          <label
+                            for="prognosis-decrease"
+                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                          >
+                            Dentrure Demaged
+                          </label>
+                        </div>
+                      </li>
+                      <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                        <div class="flex items-center pl-3">
+                          <input
+                            id="prognosis-decrease"
+                            type="radio"
+                            value=""
+                            name="dental_status"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          />
+                          <label
+                            for="prognosis-decrease"
+                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                          >
+                            Not Wearing Denture
+                          </label>
+                        </div>
+                      </li>
+                      <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                        <div class="flex items-center pl-3">
+                          <input
+                            id="prognosis-decrease"
+                            type="radio"
+                            value=""
+                            name="dental_status"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          />
+                          <label
+                            for="prognosis-decrease"
+                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                          >
+                            No Teeth
+                          </label>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="sm:col-span-2">
+                    <h3 class="mb-4 font-semibold text-gray-900 dark:text-white">
+                      Can client Chew Food Effectively ?
+                    </h3>
+                    <ul class="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                      <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                        <div class="flex items-center pl-3">
+                          <input
+                            id="horizontal-prognosis-poor"
+                            type="radio"
+                            value=""
+                            name="food_chew"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          />
+                          <label
+                            for="horizontal-prognosis-poor"
+                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                          >
+                            Yes{" "}
+                          </label>
+                        </div>
+                      </li>
+                      <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                        <div class="flex items-center pl-3">
+                          <input
+                            id="prognosis-static"
+                            type="radio"
+                            value=""
+                            name="food_chew"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          />
+                          <label
+                            for="prognosis-static"
+                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                          >
+                            No
+                          </label>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <Input
+                    label="Dentist Name"
+                    type="text"
+                    id="dentist_name"
+                    name="dentist_name"
+                    placeholder="John Deo"
+                  />
+                  <Input
+                    label="Dentist Phone No"
+                    type="number"
+                    id="dentist_phone_no"
+                    name="dentist_phone_no"
+                    placeholder="+91 121111 .."
+                  />
+                  <div class="sm:col-span-2">
+                    <h3 class="mb-4 font-semibold text-gray-900 dark:text-white">
+                      Dentist Visit
+                    </h3>
+                    <ul class="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                      <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                        <div class="flex items-center pl-3">
+                          <input
+                            id="horizontal-prognosis-poor"
+                            type="radio"
+                            value=""
+                            name="dentist_visit"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          />
+                          <label
+                            for="horizontal-prognosis-poor"
+                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                          >
+                            current{" "}
+                          </label>
+                        </div>
+                      </li>
+                      <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                        <div class="flex items-center pl-3">
+                          <input
+                            id="prognosis-static"
+                            type="radio"
+                            value=""
+                            name="dentist_visit"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          />
+                          <label
+                            for="prognosis-static"
+                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                          >
+                            No
+                          </label>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="sm:col-span-2">
+                    <Input
+                      label="If Not when the next appiontment Date "
+                      type="date"
+                      id="dentist_appiontment_date"
+                      name="dentist_appiontment_date"
+                      placeholder=""
+                    />
+                  </div>
+                  {/* Vision  */}
+                  <div class="sm:col-span-2">
+                  <h3 class="mb-4 font-semibold text-gray-900 dark:text-white">
+                      Vision
+                    </h3>
+                   
+                    <ul class="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                      <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                        <div class="flex items-center pl-3">
+                          <input
+                            id="horizontal-prognosis-poor"
+                            type="radio"
+                            value=""
+                            name="vision"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          />
+                          <label
+                            for="horizontal-prognosis-poor"
+                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                          >
+                            Unimpaired{" "}
+                          </label>
+                        </div>
+                      </li>
+                      <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                        <div class="flex items-center pl-3">
+                          <input
+                            id="prognosis-static"
+                            type="radio"
+                            value=""
+                            name="vision"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          />
+                          <label
+                            for="prognosis-static"
+                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                          >
+                           Adequate For Personal Safety
+                          </label>
+                        </div>
+                      </li>
+                      <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                        <div class="flex items-center pl-3">
+                          <input
+                            id="prognosis-static"
+                            type="radio"
+                            value=""
+                            name="vision"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          />
+                          <label
+                            for="prognosis-static"
+                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                          >
+                          Distinguishes only light or dark
+                          </label>
+                        </div>
+                      </li>
+                      <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                        <div class="flex items-center pl-3">
+                          <input
+                            id="prognosis-static"
+                            type="radio"
+                            value=""
+                            name="vision"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          />
+                          <label
+                            for="prognosis-static"
+                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                          >
+                           Blind - Safe in Familiar Locale
+                          </label>
+                        </div>
+                      </li>
+                      <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                        <div class="flex items-center pl-3">
+                          <input
+                            id="prognosis-static"
+                            type="radio"
+                            value=""
+                            name="vision"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          />
+                          <label
+                            for="prognosis-static"
+                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                          >
+                            Blind - Require Assistance
+                          </label>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="sm:col-span-2">
+                  <h3 class="mb-4 font-semibold text-gray-900 dark:text-white">
+                      Wear Glasses
+                    </h3>
+                   
+                    <ul class="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                      <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                        <div class="flex items-center pl-3">
+                          <input
+                            id="horizontal-prognosis-poor"
+                            type="radio"
+                            value=""
+                            name="wear_glasses"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          />
+                          <label
+                            for="horizontal-prognosis-poor"
+                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                          >
+                            Yes{" "}
+                          </label>
+                        </div>
+                      </li>
+                      <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                        <div class="flex items-center pl-3">
+                          <input
+                            id="prognosis-static"
+                            type="radio"
+                            value=""
+                            name="wear_glasses"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          />
+                          <label
+                            for="prognosis-static"
+                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                          >
+                           No
+                          </label>
+                        </div>
+                      </li>
+                    
+                    </ul>
+                  </div>
+                  <Input
+                            id="prognosis-static"
+                            type="text"
+                            label="Opthalmologist name"
+                            value=""
+                            name="opthalmologist_name"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          />
+                        
+                           <Input
+                            id="prognosis-static"
+                            type="Number"
+                            label="Opthalmologist Phone No"
+                            value=""
+                            placeholder="+92 311 121"
+                            name="opthalmologist_phone_no"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          />
+                    <div class="sm:col-span-2">
+                    <Input
+                      label="If Not when the next appiontment Date "
+                      type="date"
+                      id="dentist_appiontment_date"
+                      name="dentist_appiontment_date"
+                      placeholder=""
+                    />
+                  </div>
+                  {/* Hearing  */}
+                  <div class="sm:col-span-2">
+                  <h3 class="mb-4 font-semibold text-gray-900 dark:text-white">
+                      Hearing
+                    </h3>
+                   
+                    <ul class="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                      <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                        <div class="flex items-center pl-3">
+                          <input
+                            id="horizontal-prognosis-poor"
+                            type="radio"
+                            value=""
+                            name="hearing"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          />
+                          <label
+                            for="horizontal-prognosis-poor"
+                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                          >
+                            Unimpaired{" "}
+                          </label>
+                        </div>
+                      </li>
+                      <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                        <div class="flex items-center pl-3">
+                          <input
+                            id="prognosis-static"
+                            type="radio"
+                            value=""
+                            name="hearing"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          />
+                          <label
+                            for="prognosis-static"
+                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                          >
+                           Mild Impairment
+                          </label>
+                        </div>
+                      </li>
+                      <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                        <div class="flex items-center pl-3">
+                          <input
+                            id="prognosis-static"
+                            type="radio"
+                            value=""
+                            name="hearing"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          />
+                          <label
+                            for="prognosis-static"
+                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                          >
+                         Moderate Impairment
+                          </label>
+                        </div>
+                      </li>
+                      <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                        <div class="flex items-center pl-3">
+                          <input
+                            id="prognosis-static"
+                            type="radio"
+                            value=""
+                            name="hearing"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          />
+                          <label
+                            for="prognosis-static"
+                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                          >
+                           Impaired - Safety threat exists
+                          </label>
+                        </div>
+                      </li>
+                      <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                        <div class="flex items-center pl-3">
+                          <input
+                            id="prognosis-static"
+                            type="radio"
+                            value=""
+                            name="hearing"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          />
+                          <label
+                            for="prognosis-static"
+                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                          >
+                            Totaly Deaf
+                          </label>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="sm:col-span-2">
+                  <h3 class="mb-4 font-semibold text-gray-900 dark:text-white">
+                     Uses Hearing Aid(s)
+                    </h3>
+                   
+                    <ul class="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                      <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                        <div class="flex items-center pl-3">
+                          <input
+                            id="horizontal-prognosis-poor"
+                            type="radio"
+                            value=""
+                            name="hearing_aid"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          />
+                          <label
+                            for="horizontal-prognosis-poor"
+                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                          >
+                            Yes{" "}
+                          </label>
+                        </div>
+                      </li>
+                      <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                        <div class="flex items-center pl-3">
+                          <input
+                            id="prognosis-static"
+                            type="radio"
+                            value=""
+                            name="hearing_aid"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          />
+                          <label
+                            for="prognosis-static"
+                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                          >
+                           Right ear
+                          </label>
+                        </div>
+                      </li>
+                      <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                        <div class="flex items-center pl-3">
+                          <input
+                            id="prognosis-static"
+                            type="radio"
+                            value=""
+                            name="hearing_aid"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          />
+                          <label
+                            for="prognosis-static"
+                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                          >
+                         Left ear
+                          </label>
+                        </div>
+                      </li>
+                      <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                        <div class="flex items-center pl-3">
+                          <input
+                            id="prognosis-static"
+                            type="radio"
+                            value=""
+                            name="hearing_aid"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          />
+                          <label
+                            for="prognosis-static"
+                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                          >
+                           No
+                          </label>
+                        </div>
+                      </li>
+                    
+                    </ul>
+                  </div>
+                  <Input
+                            id="ent_name"
+                            type="text"
+                            label="Ent's Name"
+                            value=""
+                            placeholder="John Doe"
+                            name="ent_name"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          />
+                        
+                           <Input
+                            id="ent_phone"
+                            type="Number"
+                            label="ENT's Phone No"
+                            value=""
+                            placeholder="+92 311 121"
+                            name="ent_phone"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          />
+                    <div class="sm:col-span-2">
+                    <Input
+                      label="If Not when the next appiontment Date "
+                      type="date"
+                      id="ent_appiontment_date"
+                      name="ent_appiontment_date"
+                      placeholder=""
+                    />
+                  </div>
+                </div>
+                <div className="flex justify-between mb-2">
+                  <button
+                    type="button"
+                    class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
+                    onClick={showAdditionalInfo}
+                  >
+                    Back
+                  </button>
+                  <button
+                    type="button"
+                    class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
                     onClick={showConfirm}
                   >
                     Next
@@ -1049,7 +1899,7 @@ const NursingAddUser = () => {
                   <button
                     type="button"
                     class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
-                    onClick={showAdditionalInfo}
+                    onClick={showMedication}
                   >
                     Back
                   </button>
